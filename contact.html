@@ -175,17 +175,20 @@
             border-radius: 4px;
         }
 
-        /* ── contact wrap ── */
+        /* ── contact wrap (now single column) ── */
         .contact-wrap {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            grid-template-columns: 1fr;   /* ← was 1fr 1fr, now single column */
+            gap: 0;
             background: #fff;
             border: 1px solid var(--line);
             border-radius: 24px;
             padding: 44px 40px;
             box-shadow: 0 4px 16px rgba(15, 23, 42, .04);
             margin-top: 8px;
+            max-width: 700px;      /* optional: limit width for better readability */
+            margin-left: auto;
+            margin-right: auto;
         }
 
         /* ── contact info ── */
@@ -253,62 +256,6 @@
         .btn-calendly:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(253, 203, 110, .4);
-        }
-
-        /* ── contact form ── */
-        .contact-form form {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-        }
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 12px 16px;
-            border: 1px solid var(--line);
-            border-radius: 10px;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
-            background: #f8f9fc;
-            transition: border-color .2s, box-shadow .2s;
-        }
-        .contact-form input:focus,
-        .contact-form textarea:focus {
-            outline: none;
-            border-color: var(--purple);
-            box-shadow: 0 0 0 3px rgba(108, 92, 231, .1);
-            background: #fff;
-        }
-        .contact-form textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-        .contact-form button {
-            background: var(--purple);
-            color: #fff;
-            border: none;
-            padding: 14px 24px;
-            border-radius: 12px;
-            font-weight: 700;
-            font-size: 0.95rem;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            transition: transform .2s, box-shadow .2s, background .2s;
-        }
-        .contact-form button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(108, 92, 231, .3);
-            background: #5a4bd1;
-        }
-        #formStatus {
-            margin-top: 10px;
-            font-size: 0.9rem;
-            color: var(--green);
-            font-weight: 500;
-            text-align: center;
         }
 
         /* ── footer ── */
@@ -414,9 +361,8 @@
                 flex-wrap: wrap;
             }
             .contact-wrap {
-                grid-template-columns: 1fr;
-                gap: 32px;
                 padding: 32px 24px;
+                max-width: 100%;
             }
         }
 
@@ -450,15 +396,6 @@
             .btn-calendly {
                 padding: 10px 22px;
                 font-size: 0.85rem;
-            }
-            .contact-form input,
-            .contact-form textarea {
-                padding: 10px 14px;
-                font-size: 0.85rem;
-            }
-            .contact-form button {
-                padding: 12px 20px;
-                font-size: 0.9rem;
             }
             .logo-text h1 {
                 font-size: 1rem;
@@ -538,7 +475,7 @@
             <h2 class="section-title"><i class="fas fa-paper-plane" style="margin-right:12px; color:var(--purple);"></i>Let's build something great</h2>
 
             <div class="contact-wrap">
-                <!-- Left: Contact Info -->
+                <!-- Left: Contact Info (now full width) -->
                 <div class="contact-info">
                     <h3>Ready to accelerate?</h3>
                     <p>Whether you need a full QA suite, a custom Zoho or Odoo app, or a team to handle your back-office — we're here.</p>
@@ -567,18 +504,7 @@
 
                     <a href="#" class="btn-calendly"><i class="fas fa-calendar-check"></i> Book a Calendly Call</a>
                 </div>
-
-                <!-- Right: Contact Form -->
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <input type="text" id="cname" placeholder="Full name *" required />
-                        <input type="email" id="cemail" placeholder="Email address *" required />
-                        <input type="text" id="csubject" placeholder="Subject (e.g., QA Automation)" />
-                        <textarea rows="4" id="cmsg" placeholder="Tell us about your requirements..."></textarea>
-                        <button type="submit">Send message <i class="fas fa-arrow-right"></i></button>
-                        <p id="formStatus"></p>
-                    </form>
-                </div>
+                <!-- Contact form was removed here -->
             </div>
         </div>
     </main>
@@ -607,24 +533,6 @@
     <script>
         document.getElementById('menuToggle').addEventListener('click', function() {
             document.getElementById('navLinks').classList.toggle('open');
-        });
-
-        // ─── Simple form handler ───
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const status = document.getElementById('formStatus');
-            const name = document.getElementById('cname').value.trim();
-            const email = document.getElementById('cemail').value.trim();
-
-            if (!name || !email) {
-                status.style.color = '#e2483a';
-                status.textContent = 'Please fill in your name and email.';
-                return;
-            }
-
-            status.style.color = 'var(--green)';
-            status.textContent = '✅ Thanks, ' + name + '! We\'ll get back to you within 12 hours.';
-            this.reset();
         });
     </script>
 
