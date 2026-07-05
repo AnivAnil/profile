@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Careers — QualiTestHub</title>
+    <meta name="description" content="Join QualiTestHub — Remote-first, inclusive, and obsessed with quality. We're hiring QA engineers, Zoho consultants, developers, and BPO leads." />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        /* ── root & reset ── */
+        :root {
+            --bg: #0b1120;
+            --bg-soft: #0e1526;
+            --panel: #ffffff;
+            --ink: #0f172a;
+            --muted: #5a6b85;
+            --purple: #6c5ce7;
+            --green: #00b894;
+            --gold: #fdcb6e;
+            --line: rgba(15, 23, 42, .08);
+            --radius: 20px;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background: #f4f6fb;
+            color: var(--ink);
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ── header ── */
+        header {
+            background: var(--bg);
+            border-bottom: 1px solid rgba(255, 255, 255, .04);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 0;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        /* ── Logo ── */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+        .logo-mark {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, var(--gold), #f0a020);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1a1a1a;
+            font-size: 0.9rem;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+        .logo-text h1 {
+            color: #fff;
+            font-size: 1.2rem;
+            margin: 0;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+        .logo-text h1 span.accent {
+            color: var(--gold);
+        }
+        .logo-tagline {
+            color: #8b9bb5;
+            font-size: 0.6rem;
+            letter-spacing: 0.08em;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        /* ── Navigation ── */
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 18px;
+            margin: 0;
+            padding: 0;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .nav-links a {
+            color: #c7d2e5;
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: color .2s;
+            padding: 4px 0;
+        }
+        .nav-links a:hover {
+            color: #fff;
+        }
+        .nav-links a.active {
+            color: #fff;
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 2px;
+        }
+        .btn-start {
+            background: var(--gold);
+            color: #1a1a1a;
+            padding: 7px 16px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            transition: transform .2s, box-shadow .2s;
+            white-space: nowrap;
+        }
+        .btn-start:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(253, 203, 110, .3);
+        }
+
+        /* ── menu toggle ── */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.4rem;
+            cursor: pointer;
+            padding: 4px 8px;
+        }
+        .menu-toggle:focus {
+            outline: none;
+        }
+
+        /* ── main ── */
+        main {
+            padding: 40px 0 56px;
+        }
+
+        /* ── Hero heading ── */
+        .hero-heading {
+            text-align: center;
+            margin-bottom: 44px;
+        }
+        .hero-heading h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin: 0 0 12px;
+            background: linear-gradient(135deg, #0b1120, var(--gold));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .hero-heading h1 i {
+            color: var(--gold);
+            margin-right: 12px;
+        }
+        .hero-heading p {
+            color: var(--muted);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* ── Why work with us ── */
+        .why-card {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            padding: 32px 28px;
+            box-shadow: 0 4px 14px rgba(15, 23, 42, .04);
+            margin-bottom: 40px;
+        }
+        .why-card h3 {
+            font-size: 1.4rem;
+            margin: 0 0 18px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .why-card h3 i {
+            color: var(--purple);
+        }
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 24px;
+        }
+        .why-grid > div {
+            text-align: center;
+            padding: 8px 4px;
+        }
+        .why-grid i {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 8px;
+        }
+        .why-grid i.green { color: var(--green); }
+        .why-grid i.gold { color: var(--gold); }
+        .why-grid i.purple { color: var(--purple); }
+        .why-grid i.teal { color: #a29bfe; }
+        .why-grid strong {
+            display: block;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+        .why-grid span {
+            color: var(--muted);
+            font-size: 0.85rem;
+        }
+
+        /* ── Section title ── */
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 40px 0 24px;
+            padding-left: 20px;
+            border-left: 5px solid var(--purple);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section-title i {
+            color: var(--purple);
+        }
+
+        /* ── Job cards ── */
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+        .job-card {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 28px 22px 24px;
+            text-align: center;
+            box-shadow: 0 4px 14px rgba(15, 23, 42, .04);
+            transition: transform .3s, box-shadow .3s, border-color .3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .job-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 44px rgba(15, 23, 42, .08);
+            border-color: var(--gold);
+        }
+        .job-card .job-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 14px;
+            background: #f1eefe;
+            color: var(--purple);
+        }
+        .job-card .job-icon.green { background: #e6f9f3; color: var(--green); }
+        .job-card .job-icon.gold { background: #fff6e3; color: #e17d1a; }
+        .job-card .job-icon.blue { background: #e8f0fe; color: #3b6df0; }
+        .job-card .job-icon.teal { background: #e0f7f0; color: #0a9f6f; }
+
+        .job-card h3 {
+            font-size: 1.05rem;
+            margin: 0 0 6px;
+            font-weight: 700;
+        }
+        .job-card .exp {
+            font-size: 0.85rem;
+            color: var(--purple);
+            font-weight: 600;
+            margin: 0 0 6px;
+        }
+        .job-card p {
+            font-size: 0.85rem;
+            color: var(--muted);
+            margin: 0 0 16px;
+            line-height: 1.5;
+            flex: 1;
+        }
+        .btn-apply {
+            display: inline-block;
+            padding: 8px 24px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.82rem;
+            background: var(--purple);
+            color: #fff;
+            transition: background .2s, transform .2s, box-shadow .2s;
+        }
+        .btn-apply:hover {
+            transform: translateY(-2px);
+            background: #5a4bd1;
+            box-shadow: 0 6px 20px rgba(108, 92, 231, .3);
+            color: #fff;
+        }
+
+        /* ── Freshers section ── */
+        .freshers-box {
+            margin-top: 44px;
+            padding: 28px 24px;
+            background: rgba(108, 92, 231, .05);
+            border-radius: 24px;
+            text-align: center;
+            border: 1px solid rgba(108, 92, 231, .08);
+        }
+        .freshers-box h3 {
+            font-size: 1.3rem;
+            margin: 0 0 8px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .freshers-box h3 i {
+            color: var(--gold);
+        }
+        .freshers-box p {
+            color: var(--muted);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+        .freshers-box a {
+            color: var(--purple);
+            font-weight: 600;
+            transition: color .2s;
+        }
+        .freshers-box a:hover {
+            text-decoration: underline;
+            color: #5a4bd1;
+        }
+
+        /* ── footer ── */
+        footer {
+            background: var(--bg);
+            padding: 32px 0 24px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, .04);
+        }
+        footer .social {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            margin-bottom: 16px;
+        }
+        footer .social a {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #cdd7e8;
+            transition: .3s;
+            font-size: 1rem;
+        }
+        footer .social a:hover {
+            background: var(--gold);
+            color: #1a1a1a;
+            transform: translateY(-3px);
+        }
+        footer p {
+            color: #8b9bb5;
+            font-size: 0.8rem;
+            margin: 4px 0;
+        }
+        footer a {
+            color: #8b9bb5;
+            text-decoration: underline;
+            transition: color .2s;
+        }
+        footer a:hover {
+            color: #fff;
+        }
+
+        /* ── whatsapp float ── */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: #25D366;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.5rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, .3);
+            z-index: 99;
+            transition: transform .25s;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            color: #fff;
+        }
+
+        /* ── responsive ── */
+        @media(max-width: 992px) {
+            .menu-toggle {
+                display: block;
+            }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                gap: 8px;
+                padding: 12px 0 4px;
+                border-top: 1px solid rgba(255,255,255,.06);
+                margin-top: 8px;
+            }
+            .nav-links.open {
+                display: flex;
+            }
+            .nav-links a {
+                font-size: 0.95rem;
+                padding: 6px 0;
+                width: 100%;
+            }
+            .nav-links a.active {
+                border-bottom: none;
+                padding-bottom: 6px;
+            }
+            .btn-start {
+                display: inline-block;
+                margin-top: 4px;
+                text-align: center;
+                width: auto;
+            }
+            .nav-flex {
+                flex-wrap: wrap;
+            }
+            .hero-heading h1 {
+                font-size: 2.2rem;
+            }
+            .section-title {
+                font-size: 1.5rem;
+                padding-left: 14px;
+            }
+        }
+
+        @media(max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+            .hero-heading h1 {
+                font-size: 1.8rem;
+            }
+            .hero-heading p {
+                font-size: 0.95rem;
+            }
+            .why-card {
+                padding: 24px 18px;
+            }
+            .why-card h3 {
+                font-size: 1.2rem;
+            }
+            .why-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 16px;
+            }
+            .why-grid i {
+                font-size: 1.6rem;
+            }
+            .why-grid strong {
+                font-size: 0.9rem;
+            }
+            .why-grid span {
+                font-size: 0.8rem;
+            }
+            .section-title {
+                font-size: 1.3rem;
+                padding-left: 12px;
+                margin: 32px 0 18px;
+            }
+            .jobs-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 16px;
+            }
+            .job-card {
+                padding: 20px 16px;
+            }
+            .job-card .job-icon {
+                width: 54px;
+                height: 54px;
+                font-size: 1.4rem;
+            }
+            .job-card h3 {
+                font-size: 0.95rem;
+            }
+            .job-card p {
+                font-size: 0.8rem;
+            }
+            .freshers-box {
+                padding: 20px 16px;
+                margin-top: 32px;
+            }
+            .freshers-box h3 {
+                font-size: 1.1rem;
+            }
+            .freshers-box p {
+                font-size: 0.85rem;
+            }
+            .logo-text h1 {
+                font-size: 1rem;
+            }
+            .logo-tagline {
+                font-size: 0.5rem;
+            }
+            .logo-mark {
+                width: 30px;
+                height: 30px;
+                font-size: 0.75rem;
+            }
+            .whatsapp-float {
+                width: 46px;
+                height: 46px;
+                font-size: 1.3rem;
+                bottom: 18px;
+                right: 18px;
+            }
+        }
+
+        @media(max-width: 400px) {
+            .logo-text h1 {
+                font-size: 0.85rem;
+            }
+            .logo-tagline {
+                font-size: 0.45rem;
+                letter-spacing: 0.04em;
+            }
+            .logo-mark {
+                width: 26px;
+                height: 26px;
+                font-size: 0.65rem;
+            }
+            .hero-heading h1 {
+                font-size: 1.5rem;
+            }
+            .jobs-grid {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+            .why-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+            .section-title {
+                font-size: 1.1rem;
+                padding-left: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ─── HEADER ─── -->
+    <header>
+        <div class="container nav-flex">
+            <div class="logo">
+                <div class="logo-mark"><i class="fas fa-check"></i></div>
+                <div class="logo-text">
+                    <h1>Quali<span class="accent">Test</span>Hub</h1>
+                    <span class="logo-tagline">⚡ QA · DEV · BPO · TOOLS</span>
+                </div>
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="tools.html">Tools</a></li>
+                <li><a href="bpo.html">BPO</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="career.html" class="active">Career</a></li>
+                <li><a href="terms.html">Terms</a></li>
+                <li><a href="contact.html" class="btn-start">Start a project</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- ─── MAIN ─── -->
+    <main>
+        <div class="container">
+
+            <!-- Hero Heading -->
+            <div class="hero-heading">
+                <h1><i class="fas fa-users"></i>Join Our Global Team</h1>
+                <p>Remote-first, inclusive, and obsessed with quality. If you love solving complex problems, let's talk.</p>
+            </div>
+
+            <!-- Why work with us -->
+            <div class="why-card">
+                <h3><i class="fas fa-heart"></i> Why work with us?</h3>
+                <div class="why-grid">
+                    <div>
+                        <i class="fas fa-globe green"></i>
+                        <strong>100% Remote</strong>
+                        <span>Work from anywhere in India.</span>
+                    </div>
+                    <div>
+                        <i class="fas fa-clock gold"></i>
+                        <strong>Flexible hours</strong>
+                        <span>Focus on output, not clock.</span>
+                    </div>
+                    <div>
+                        <i class="fas fa-rocket teal"></i>
+                        <strong>Growth mindset</strong>
+                        <span>Learn new tech, attend conferences.</span>
+                    </div>
+                    <div>
+                        <i class="fas fa-hand-holding-heart purple"></i>
+                        <strong>Inclusive culture</strong>
+                        <span>Diverse &amp; supportive environment.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Open Positions -->
+            <h2 class="section-title"><i class="fas fa-briefcase"></i>Open Positions</h2>
+
+            <div class="jobs-grid">
+                <!-- Senior QA -->
+                <div class="job-card">
+                    <div class="job-icon green"><i class="fas fa-vial"></i></div>
+                    <h3>Senior QA Automation</h3>
+                    <div class="exp"><i class="far fa-calendar-alt"></i> 4+ years</div>
+                    <p>Selenium, Java, API testing. Lead automation strategy and mentor junior engineers.</p>
+                    <a href="mailto:qualitesthub@gmail.com?subject=Application%20for%20QA%20Automation" class="btn-apply">Apply now <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Zoho Consultant -->
+                <div class="job-card">
+                    <div class="job-icon gold"><i class="fab fa-zoho"></i></div>
+                    <h3>Zoho Consultant</h3>
+                    <div class="exp"><i class="far fa-calendar-alt"></i> 2+ years</div>
+                    <p>Zoho Creator, CRM, Deluge scripting. Build custom apps and automate workflows.</p>
+                    <a href="mailto:qualitesthub@gmail.com?subject=Application%20for%20Zoho" class="btn-apply">Apply now <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Full-Stack Developer -->
+                <div class="job-card">
+                    <div class="job-icon blue"><i class="fas fa-code"></i></div>
+                    <h3>Full‑Stack Developer</h3>
+                    <div class="exp"><i class="far fa-calendar-alt"></i> 3+ years</div>
+                    <p>React, Node.js, Python or .NET. Build scalable web applications from scratch.</p>
+                    <a href="mailto:qualitesthub@gmail.com?subject=Application%20for%20Full-Stack" class="btn-apply">Apply now <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- BPO Team Lead -->
+                <div class="job-card">
+                    <div class="job-icon teal"><i class="fas fa-headset"></i></div>
+                    <h3>BPO Team Lead</h3>
+                    <div class="exp"><i class="far fa-calendar-alt"></i> 3+ years</div>
+                    <p>Manage customer support &amp; back-office teams. Ensure SLAs and quality standards.</p>
+                    <a href="mailto:qualitesthub@gmail.com?subject=Application%20for%20BPO%20Lead" class="btn-apply">Apply now <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Freshers & Interns -->
+            <div class="freshers-box">
+                <h3><i class="fas fa-graduation-cap"></i> Freshers &amp; Interns</h3>
+                <p>Send your resume to <a href="mailto:qualitesthub@gmail.com">qualitesthub@gmail.com</a> with subject <strong>“Fresher – [Role]”</strong>.</p>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ─── FOOTER ─── -->
+    <footer>
+        <div class="container">
+            <div class="social">
+                <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p>© 2026 QualiTestHub — Software Services, BPO &amp; Digital Tools</p>
+            <p style="font-size:0.75rem; opacity:0.7;">
+                <a href="terms.html" style="color: #8899b0; text-decoration: underline;">Terms</a> &middot;
+                <a href="career.html" style="color: #8899b0; text-decoration: underline;">Careers</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- ─── WHATSAPP FLOAT ─── -->
+    <a href="https://wa.me/919514391536?text=Hi%20QualiTestHub,%20I%20found%20your%20site%20and%20would%20like%20to%20know%20more." target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+    <!-- ─── MENU TOGGLE SCRIPT ─── -->
+    <script>
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            document.getElementById('navLinks').classList.toggle('open');
+        });
+    </script>
+
+</body>
+</html>

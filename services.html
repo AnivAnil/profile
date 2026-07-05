@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Services — QualiTestHub</title>
+    <meta name="description" content="QualiTestHub — Global QA Automation, Full-Stack Development, Zoho Consulting, Odoo Consulting, BPO Services & Free Open-Source Tools." />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        /* ── root & reset ── */
+        :root {
+            --bg: #0b1120;
+            --bg-soft: #0e1526;
+            --panel: #ffffff;
+            --ink: #0f172a;
+            --muted: #5a6b85;
+            --purple: #6c5ce7;
+            --green: #00b894;
+            --gold: #fdcb6e;
+            --line: rgba(15, 23, 42, .08);
+            --radius: 20px;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background: #f4f6fb;
+            color: var(--ink);
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ── header ── */
+        header {
+            background: var(--bg);
+            border-bottom: 1px solid rgba(255, 255, 255, .04);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 0;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        /* ── Logo ── */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+        .logo-mark {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, var(--gold), #f0a020);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1a1a1a;
+            font-size: 0.9rem;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+        .logo-text h1 {
+            color: #fff;
+            font-size: 1.2rem;
+            margin: 0;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+        .logo-text h1 span.accent {
+            color: var(--gold);
+        }
+        .logo-tagline {
+            color: #8b9bb5;
+            font-size: 0.6rem;
+            letter-spacing: 0.08em;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        /* ── Navigation ── */
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 18px;
+            margin: 0;
+            padding: 0;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .nav-links a {
+            color: #c7d2e5;
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: color .2s;
+            padding: 4px 0;
+        }
+        .nav-links a:hover {
+            color: #fff;
+        }
+        .nav-links a.active {
+            color: #fff;
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 2px;
+        }
+        .btn-start {
+            background: var(--gold);
+            color: #1a1a1a;
+            padding: 7px 16px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            transition: transform .2s, box-shadow .2s;
+            white-space: nowrap;
+        }
+        .btn-start:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(253, 203, 110, .3);
+        }
+
+        /* ── main ── */
+        main {
+            padding: 40px 0 56px;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 56px;
+            height: 4px;
+            background: var(--gold);
+            margin: 12px auto 0;
+            border-radius: 4px;
+        }
+        .section-subtitle {
+            text-align: center;
+            color: var(--muted);
+            max-width: 620px;
+            margin: 14px auto 36px;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* ── service cards ── */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+        }
+        .service-card {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 28px 20px 24px;
+            text-align: center;
+            box-shadow: 0 4px 14px rgba(15, 23, 42, .04);
+            transition: transform .3s, box-shadow .3s, border-color .3s;
+        }
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 44px rgba(15, 23, 42, .08);
+            border-color: var(--gold);
+        }
+        .service-card .icon-wrap {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 14px;
+            font-size: 1.6rem;
+            background: #f4f6fb;
+            color: var(--muted);
+        }
+        .service-card .icon-wrap.green {
+            background: #e6f9f3;
+            color: var(--green);
+        }
+        .service-card .icon-wrap.blue {
+            background: #e8f0fe;
+            color: #3b6df0;
+        }
+        .service-card .icon-wrap.purple {
+            background: #f1eefe;
+            color: var(--purple);
+        }
+        .service-card .icon-wrap.gold {
+            background: #fff6e3;
+            color: #e17d1a;
+        }
+        .service-card .icon-wrap.teal {
+            background: #e0f7f0;
+            color: #0a9f6f;
+        }
+        .service-card .icon-wrap.orange {
+            background: #fef0e0;
+            color: #d97a1a;
+        }
+        .service-card .icon-wrap.brand {
+            background: transparent;
+            padding: 0;
+            width: auto;
+            height: auto;
+            border-radius: 0;
+        }
+        .service-card .icon-wrap.brand img {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
+        }
+        .service-card h3 {
+            font-size: 1.05rem;
+            margin: 0 0 8px;
+            font-weight: 700;
+        }
+        .service-card p {
+            font-size: 0.85rem;
+            color: var(--muted);
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* ── CTA ── */
+        .cta-box {
+            margin-top: 44px;
+            padding: 32px 24px;
+            background: linear-gradient(135deg, rgba(108, 92, 231, .06), rgba(0, 184, 148, .06));
+            border-radius: 24px;
+            text-align: center;
+            border: 1px solid rgba(108, 92, 231, .10);
+        }
+        .cta-box h3 {
+            font-size: 1.4rem;
+            margin: 0 0 8px;
+            font-weight: 800;
+        }
+        .cta-box p {
+            color: var(--muted);
+            font-size: 0.95rem;
+            margin: 0 0 18px;
+        }
+        .btn-primary {
+            background: var(--gold);
+            color: #1a1a1a;
+            padding: 12px 28px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform .2s, box-shadow .2s;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(253, 203, 110, .4);
+        }
+
+        /* ── footer ── */
+        footer {
+            background: var(--bg);
+            padding: 32px 0 24px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, .04);
+        }
+        footer .social {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            margin-bottom: 16px;
+        }
+        footer .social a {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #cdd7e8;
+            transition: .3s;
+            font-size: 1rem;
+        }
+        footer .social a:hover {
+            background: var(--gold);
+            color: #1a1a1a;
+            transform: translateY(-3px);
+        }
+        footer p {
+            color: #8b9bb5;
+            font-size: 0.8rem;
+            margin: 4px 0;
+        }
+        footer a {
+            color: #8b9bb5;
+            text-decoration: underline;
+            transition: color .2s;
+        }
+        footer a:hover {
+            color: #fff;
+        }
+
+        /* ── whatsapp float ── */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: #25D366;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.5rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, .3);
+            z-index: 99;
+            transition: transform .25s;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            color: #fff;
+        }
+
+        /* ── Hamburger Menu Toggle ── */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.4rem;
+            cursor: pointer;
+            padding: 4px 8px;
+        }
+        .menu-toggle:focus {
+            outline: none;
+        }
+
+        /* ── responsive ── */
+        @media(max-width: 992px) {
+            .menu-toggle {
+                display: block;
+            }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                gap: 8px;
+                padding: 12px 0 4px;
+                border-top: 1px solid rgba(255,255,255,.06);
+                margin-top: 8px;
+            }
+            .nav-links.open {
+                display: flex;
+            }
+            .nav-links a {
+                font-size: 0.95rem;
+                padding: 6px 0;
+                width: 100%;
+            }
+            .nav-links a.active {
+                border-bottom: none;
+                padding-bottom: 6px;
+            }
+            .btn-start {
+                display: inline-block;
+                margin-top: 4px;
+                text-align: center;
+                width: auto;
+            }
+            .nav-flex {
+                flex-wrap: wrap;
+            }
+        }
+
+        @media(max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+            .section-title {
+                font-size: 1.6rem;
+            }
+            .section-subtitle {
+                font-size: 0.9rem;
+                margin: 12px auto 28px;
+            }
+            .services-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 16px;
+            }
+            .service-card {
+                padding: 20px 16px;
+            }
+            .service-card .icon-wrap {
+                width: 56px;
+                height: 56px;
+                font-size: 1.3rem;
+            }
+            .service-card .icon-wrap.brand img {
+                height: 34px;
+            }
+            .service-card h3 {
+                font-size: 0.95rem;
+            }
+            .service-card p {
+                font-size: 0.8rem;
+            }
+            .cta-box {
+                padding: 24px 16px;
+                margin-top: 32px;
+            }
+            .cta-box h3 {
+                font-size: 1.2rem;
+            }
+            .btn-primary {
+                padding: 10px 22px;
+                font-size: 0.85rem;
+            }
+            .logo-text h1 {
+                font-size: 1rem;
+            }
+            .logo-tagline {
+                font-size: 0.5rem;
+            }
+            .logo-mark {
+                width: 30px;
+                height: 30px;
+                font-size: 0.75rem;
+            }
+            .whatsapp-float {
+                width: 46px;
+                height: 46px;
+                font-size: 1.3rem;
+                bottom: 18px;
+                right: 18px;
+            }
+        }
+
+        @media(max-width: 400px) {
+            .logo-text h1 {
+                font-size: 0.85rem;
+            }
+            .logo-tagline {
+                font-size: 0.45rem;
+                letter-spacing: 0.04em;
+            }
+            .logo-mark {
+                width: 26px;
+                height: 26px;
+                font-size: 0.65rem;
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+            .service-card {
+                padding: 18px 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ─── HEADER ─── -->
+    <header>
+        <div class="container nav-flex">
+            <div class="logo">
+                <div class="logo-mark"><i class="fas fa-check"></i></div>
+                <div class="logo-text">
+                    <h1>Quali<span class="accent">Test</span>Hub</h1>
+                    <span class="logo-tagline">⚡ QA · DEV · BPO · TOOLS</span>
+                </div>
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="tools.html">Tools</a></li>
+                <li><a href="bpo.html">BPO</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="career.html">Career</a></li>
+                <li><a href="terms.html">Terms</a></li>
+                <li><a href="contact.html" class="btn-start">Start a project</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- ─── MAIN ─── -->
+    <main>
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-cogs" style="margin-right:12px; color:var(--purple);"></i>Our Software Services</h2>
+            <p class="section-subtitle">End-to-end solutions for global enterprises — from QA automation and Zoho consulting to Odoo ERP implementation and AI-driven testing.</p>
+
+            <div class="services-grid">
+                <!-- 1. QA & Test Automation -->
+                <div class="service-card">
+                    <div class="icon-wrap green"><i class="fas fa-check-circle"></i></div>
+                    <h3>QA &amp; Test Automation</h3>
+                    <p>Selenium, Java, TestNG, Cucumber — cut regression cycles by 40%.</p>
+                </div>
+
+                <!-- 2. API & Backend Testing -->
+                <div class="service-card">
+                    <div class="icon-wrap blue"><i class="fas fa-plug"></i></div>
+                    <h3>API &amp; Backend Testing</h3>
+                    <p>REST Assured, Postman, SQL validation for secure integrations.</p>
+                </div>
+
+                <!-- 3. Zoho Consulting -->
+                <div class="service-card">
+                    <div class="icon-wrap brand">
+                        <img src="https://www.zoho.com/sites/zweb/images/zoho_general_pages/zoho-logo-512.png" alt="Zoho Logo" />
+                    </div>
+                    <h3>Zoho Consulting</h3>
+                    <p>Custom Creator apps, CRM automation, Zoho One implementations.</p>
+                </div>
+
+                <!-- 4. Odoo Consulting -->
+                <div class="service-card">
+                    <div class="icon-wrap brand">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/50/Odoo_logo.svg" alt="Odoo Logo" />
+                    </div>
+                    <h3>Odoo Consulting</h3>
+                    <p>Implementation, customization, and integration of Odoo ERP modules.</p>
+                </div>
+
+                <!-- 5. Full-Stack Development -->
+                <div class="service-card">
+                    <div class="icon-wrap purple"><i class="fas fa-code"></i></div>
+                    <h3>Full‑Stack Development</h3>
+                    <p>React, Node.js, Python, .NET — from MVP to enterprise scale.</p>
+                </div>
+
+                <!-- 6. Performance & Security -->
+                <div class="service-card">
+                    <div class="icon-wrap orange"><i class="fas fa-tachometer-alt"></i></div>
+                    <h3>Performance &amp; Security</h3>
+                    <p>JMeter load testing, OWASP scanning, and security profiling.</p>
+                </div>
+
+                <!-- 7. Data & Analytics -->
+                <div class="service-card">
+                    <div class="icon-wrap blue"><i class="fas fa-chart-bar"></i></div>
+                    <h3>Data &amp; Analytics</h3>
+                    <p>ETL testing, dashboard development, and data validation.</p>
+                </div>
+
+                <!-- 8. Cloud & DevOps -->
+                <div class="service-card">
+                    <div class="icon-wrap teal"><i class="fas fa-cloud-upload-alt"></i></div>
+                    <h3>Cloud &amp; DevOps</h3>
+                    <p>AWS, Azure, Docker, Kubernetes — CI/CD pipelines and infra testing.</p>
+                </div>
+
+                <!-- 9. AI & ML Testing -->
+                <div class="service-card">
+                    <div class="icon-wrap purple"><i class="fas fa-brain"></i></div>
+                    <h3>AI &amp; ML Testing</h3>
+                    <p>Model validation, bias detection, and fairness evaluation.</p>
+                </div>
+
+                <!-- 10. Mobile App Testing -->
+                <div class="service-card">
+                    <div class="icon-wrap green"><i class="fas fa-mobile-alt"></i></div>
+                    <h3>Mobile App Testing</h3>
+                    <p>Appium, real‑device testing, iOS &amp; Android compatibility.</p>
+                </div>
+
+                <!-- 11. Legacy Modernization -->
+                <div class="service-card">
+                    <div class="icon-wrap gold"><i class="fas fa-undo-alt"></i></div>
+                    <h3>Legacy Modernization</h3>
+                    <p>Re‑engineering and migration to modern stacks.</p>
+                </div>
+            </div>
+
+            <!-- ─── CTA ─── -->
+            <div class="cta-box">
+                <h3>Need a custom solution?</h3>
+                <p>Let's discuss your project requirements and build something great together.</p>
+                <a href="contact.html" class="btn-primary">Talk to our experts <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </main>
+
+    <!-- ─── FOOTER ─── -->
+    <footer>
+        <div class="container">
+            <div class="social">
+                <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p>© 2026 QualiTestHub — Software Services, BPO &amp; Digital Tools</p>
+            <p style="font-size:0.75rem; opacity:0.7;">
+                <a href="terms.html" style="color: #8899b0; text-decoration: underline;">Terms</a> &middot;
+                <a href="career.html" style="color: #8899b0; text-decoration: underline;">Careers</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- ─── WHATSAPP FLOAT ─── -->
+    <a href="https://wa.me/919514391536?text=Hi%20QualiTestHub,%20I%20found%20your%20site%20and%20would%20like%20to%20know%20more." target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+    <!-- ─── MENU TOGGLE SCRIPT ─── -->
+    <script>
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            document.getElementById('navLinks').classList.toggle('open');
+        });
+    </script>
+
+</body>
+</html>

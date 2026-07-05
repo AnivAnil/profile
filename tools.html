@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Free Tools — QualiTestHub</title>
+    <meta name="description" content="QualiTestHub — Free Open-Source Tools: PDF Converter, JSON Studio, POS Retail Pro, and more. 100% client-side, privacy-first." />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        /* ── root & reset ── */
+        :root {
+            --bg: #0b1120;
+            --bg-soft: #0e1526;
+            --panel: #ffffff;
+            --ink: #0f172a;
+            --muted: #5a6b85;
+            --purple: #6c5ce7;
+            --green: #00b894;
+            --gold: #fdcb6e;
+            --line: rgba(15, 23, 42, .08);
+            --radius: 20px;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background: #f4f6fb;
+            color: var(--ink);
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ── header ── */
+        header {
+            background: var(--bg);
+            border-bottom: 1px solid rgba(255, 255, 255, .04);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 0;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        /* ── Logo ── */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+        .logo-mark {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, var(--gold), #f0a020);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1a1a1a;
+            font-size: 0.9rem;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+        .logo-text h1 {
+            color: #fff;
+            font-size: 1.2rem;
+            margin: 0;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+        .logo-text h1 span.accent {
+            color: var(--gold);
+        }
+        .logo-tagline {
+            color: #8b9bb5;
+            font-size: 0.6rem;
+            letter-spacing: 0.08em;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        /* ── Navigation ── */
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 18px;
+            margin: 0;
+            padding: 0;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .nav-links a {
+            color: #c7d2e5;
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: color .2s;
+            padding: 4px 0;
+        }
+        .nav-links a:hover {
+            color: #fff;
+        }
+        .nav-links a.active {
+            color: #fff;
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 2px;
+        }
+        .btn-start {
+            background: var(--gold);
+            color: #1a1a1a;
+            padding: 7px 16px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            transition: transform .2s, box-shadow .2s;
+            white-space: nowrap;
+        }
+        .btn-start:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(253, 203, 110, .3);
+        }
+
+        /* ── menu toggle ── */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.4rem;
+            cursor: pointer;
+            padding: 4px 8px;
+        }
+        .menu-toggle:focus {
+            outline: none;
+        }
+
+        /* ── main ── */
+        main {
+            padding: 40px 0 56px;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 56px;
+            height: 4px;
+            background: var(--gold);
+            margin: 12px auto 0;
+            border-radius: 4px;
+        }
+        .section-subtitle {
+            text-align: center;
+            color: var(--muted);
+            max-width: 620px;
+            margin: 14px auto 36px;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* ── tools grid ── */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+        .tool-card {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 28px 22px 24px;
+            text-align: center;
+            box-shadow: 0 4px 14px rgba(15, 23, 42, .04);
+            transition: transform .3s, box-shadow .3s, border-color .3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .tool-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 44px rgba(15, 23, 42, .08);
+            border-color: var(--gold);
+        }
+        .tool-card .tool-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: #fff;
+            margin-bottom: 14px;
+        }
+        .tool-card .tool-icon.pdf { background: #e2483a; }
+        .tool-card .tool-icon.json { background: #0a9f6f; }
+        .tool-card .tool-icon.pos { background: var(--purple); }
+        .tool-card .tool-icon.csv { background: #e17d1a; }
+        .tool-card .tool-icon.palette { background: #e2437e; }
+        .tool-card .tool-icon.markdown { background: #3b6df0; }
+
+        .tool-card h3 {
+            font-size: 1.05rem;
+            margin: 0 0 8px;
+            font-weight: 700;
+        }
+        .tool-card p {
+            font-size: 0.85rem;
+            color: var(--muted);
+            margin: 0 0 16px;
+            line-height: 1.5;
+            flex: 1;
+        }
+        .tool-btn {
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.82rem;
+            transition: background .2s, transform .2s;
+            background: #fdeceb;
+            color: #e2483a;
+        }
+        .tool-btn:hover {
+            transform: translateY(-2px);
+        }
+        .tool-btn.green {
+            background: #e3f7ef;
+            color: #0a9f6f;
+        }
+        .tool-btn.purple {
+            background: #f1eefe;
+            color: var(--purple);
+        }
+        .tool-btn.soon {
+            background: #f2f4f8;
+            color: #8b95a7;
+            cursor: default;
+        }
+        .tool-btn.soon:hover {
+            transform: none;
+        }
+
+        /* ── badges ── */
+        .badge-row {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+            color: var(--muted);
+            font-size: 0.9rem;
+            font-weight: 500;
+            flex-wrap: wrap;
+        }
+        .badge-row i {
+            margin-right: 8px;
+            color: var(--green);
+        }
+
+        /* ── footer ── */
+        footer {
+            background: var(--bg);
+            padding: 32px 0 24px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, .04);
+        }
+        footer .social {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            margin-bottom: 16px;
+        }
+        footer .social a {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #cdd7e8;
+            transition: .3s;
+            font-size: 1rem;
+        }
+        footer .social a:hover {
+            background: var(--gold);
+            color: #1a1a1a;
+            transform: translateY(-3px);
+        }
+        footer p {
+            color: #8b9bb5;
+            font-size: 0.8rem;
+            margin: 4px 0;
+        }
+        footer a {
+            color: #8b9bb5;
+            text-decoration: underline;
+            transition: color .2s;
+        }
+        footer a:hover {
+            color: #fff;
+        }
+
+        /* ── whatsapp float ── */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: #25D366;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.5rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, .3);
+            z-index: 99;
+            transition: transform .25s;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            color: #fff;
+        }
+
+        /* ── responsive ── */
+        @media(max-width: 992px) {
+            .menu-toggle {
+                display: block;
+            }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                gap: 8px;
+                padding: 12px 0 4px;
+                border-top: 1px solid rgba(255,255,255,.06);
+                margin-top: 8px;
+            }
+            .nav-links.open {
+                display: flex;
+            }
+            .nav-links a {
+                font-size: 0.95rem;
+                padding: 6px 0;
+                width: 100%;
+            }
+            .nav-links a.active {
+                border-bottom: none;
+                padding-bottom: 6px;
+            }
+            .btn-start {
+                display: inline-block;
+                margin-top: 4px;
+                text-align: center;
+                width: auto;
+            }
+            .nav-flex {
+                flex-wrap: wrap;
+            }
+        }
+
+        @media(max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+            .section-title {
+                font-size: 1.6rem;
+            }
+            .section-subtitle {
+                font-size: 0.9rem;
+                margin: 12px auto 28px;
+            }
+            .tools-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 16px;
+            }
+            .tool-card {
+                padding: 20px 16px;
+            }
+            .tool-card .tool-icon {
+                width: 56px;
+                height: 56px;
+                font-size: 1.4rem;
+            }
+            .tool-card h3 {
+                font-size: 0.95rem;
+            }
+            .tool-card p {
+                font-size: 0.8rem;
+            }
+            .badge-row {
+                gap: 20px;
+                font-size: 0.8rem;
+            }
+            .logo-text h1 {
+                font-size: 1rem;
+            }
+            .logo-tagline {
+                font-size: 0.5rem;
+            }
+            .logo-mark {
+                width: 30px;
+                height: 30px;
+                font-size: 0.75rem;
+            }
+            .whatsapp-float {
+                width: 46px;
+                height: 46px;
+                font-size: 1.3rem;
+                bottom: 18px;
+                right: 18px;
+            }
+        }
+
+        @media(max-width: 400px) {
+            .logo-text h1 {
+                font-size: 0.85rem;
+            }
+            .logo-tagline {
+                font-size: 0.45rem;
+                letter-spacing: 0.04em;
+            }
+            .logo-mark {
+                width: 26px;
+                height: 26px;
+                font-size: 0.65rem;
+            }
+            .tools-grid {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+            .tool-card {
+                padding: 18px 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ─── HEADER ─── -->
+    <header>
+        <div class="container nav-flex">
+            <div class="logo">
+                <div class="logo-mark"><i class="fas fa-check"></i></div>
+                <div class="logo-text">
+                    <h1>Quali<span class="accent">Test</span>Hub</h1>
+                    <span class="logo-tagline">⚡ QA · DEV · BPO · TOOLS</span>
+                </div>
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="tools.html" class="active">Tools</a></li>
+                <li><a href="bpo.html">BPO</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="career.html">Career</a></li>
+                <li><a href="terms.html">Terms</a></li>
+                <li><a href="contact.html" class="btn-start">Start a project</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- ─── MAIN ─── -->
+    <main>
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-tools" style="margin-right:12px; color:var(--purple);"></i>Open‑Source Tools</h2>
+            <p class="section-subtitle">100% client‑side — your data never touches a server. <strong>Free forever, always private.</strong></p>
+
+            <div class="tools-grid">
+                <!-- PDF Converter -->
+                <div class="tool-card">
+                    <div class="tool-icon pdf"><i class="fas fa-file-pdf"></i></div>
+                    <h3>PDF Converter Suite</h3>
+                    <p>Merge, convert, and generate PDFs from images or text. Fully offline.</p>
+                    <a href="https://anivanil.github.io/pdf-converter/index.html" target="_blank" rel="noopener noreferrer" class="tool-btn">Launch <i class="fas fa-arrow-up-right-from-square"></i></a>
+                </div>
+
+                <!-- JSON Studio -->
+                <div class="tool-card">
+                    <div class="tool-icon json"><i class="fas fa-code"></i></div>
+                    <h3>JSON Studio Pro</h3>
+                    <p>Format, validate, and explore JSON with tree view and statistics.</p>
+                    <a href="https://anivanil.github.io/JSON-Formatter/" target="_blank" rel="noopener noreferrer" class="tool-btn green">Launch <i class="fas fa-arrow-up-right-from-square"></i></a>
+                </div>
+
+                <!-- POS Retail -->
+                <div class="tool-card">
+                    <div class="tool-icon pos"><i class="fas fa-receipt"></i></div>
+                    <h3>POS Retail Pro</h3>
+                    <p>GST‑compliant invoicing, inventory management, and sales tracking.</p>
+                    <a href="https://anivanil.github.io/invoice_flow/" target="_blank" rel="noopener noreferrer" class="tool-btn purple">Launch <i class="fas fa-arrow-up-right-from-square"></i></a>
+                </div>
+
+                <!-- CSV to JSON -->
+                <div class="tool-card">
+                    <div class="tool-icon csv"><i class="fas fa-table"></i></div>
+                    <h3>CSV to JSON Converter</h3>
+                    <p>Instantly convert CSV files to JSON with schema detection and preview.</p>
+                    <span class="tool-btn soon">Coming soon <i class="far fa-clock"></i></span>
+                </div>
+
+                <!-- Color Palette -->
+                <div class="tool-card">
+                    <div class="tool-icon palette"><i class="fas fa-palette"></i></div>
+                    <h3>Color Palette Generator</h3>
+                    <p>Generate harmonious palettes for UI/UX — copy HEX/RGB instantly.</p>
+                    <span class="tool-btn soon">Coming soon <i class="far fa-clock"></i></span>
+                </div>
+
+                <!-- Markdown Editor -->
+                <div class="tool-card">
+                    <div class="tool-icon markdown"><i class="fas fa-i-cursor"></i></div>
+                    <h3>Markdown Editor &amp; Viewer</h3>
+                    <p>Write and preview markdown in real-time with export to HTML and PDF.</p>
+                    <span class="tool-btn soon">Coming soon <i class="far fa-clock"></i></span>
+                </div>
+            </div>
+
+            <div class="badge-row">
+                <span><i class="fas fa-check-circle"></i> Free forever</span>
+                <span><i class="fas fa-lock"></i> 100% local</span>
+                <span><i class="fas fa-code-branch"></i> Open source</span>
+            </div>
+        </div>
+    </main>
+
+    <!-- ─── FOOTER ─── -->
+    <footer>
+        <div class="container">
+            <div class="social">
+                <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p>© 2026 QualiTestHub — Software Services, BPO &amp; Digital Tools</p>
+            <p style="font-size:0.75rem; opacity:0.7;">
+                <a href="terms.html" style="color: #8899b0; text-decoration: underline;">Terms</a> &middot;
+                <a href="career.html" style="color: #8899b0; text-decoration: underline;">Careers</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- ─── WHATSAPP FLOAT ─── -->
+    <a href="https://wa.me/919514391536?text=Hi%20QualiTestHub,%20I%20found%20your%20site%20and%20would%20like%20to%20know%20more." target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+    <!-- ─── MENU TOGGLE SCRIPT ─── -->
+    <script>
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            document.getElementById('navLinks').classList.toggle('open');
+        });
+    </script>
+
+</body>
+</html>
